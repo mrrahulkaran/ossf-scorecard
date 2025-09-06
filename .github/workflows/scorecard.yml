@@ -12,6 +12,4 @@ jobs:
       - name: Run OpenSSF Scorecard
         uses: ossf/scorecard-action@v1.1.1
         with:
-          repo: ${{ github.repository }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          format: json
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
