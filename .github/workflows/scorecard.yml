@@ -1,21 +1,17 @@
 ﻿name: OpenSSF Scorecard
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
+on: [push]
 
 jobs:
   scorecard:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Run OpenSSF Scorecard
-      uses: ossf/scorecard-action@v4
-      with:
-        repo: ${{ github.repository }}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run OpenSSF Scorecard
+        uses: ossf/scorecard-action@v3   # <-- change v4 to v3
+        with:
+          repo: ${{ github.repository }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          format: json
